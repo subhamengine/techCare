@@ -1,14 +1,14 @@
 import React from "react";
 import more_horiz from "../assets/more_horiz.svg";
 
-const PatientsList = ({ patients,selectedPatient }) => {
+const PatientsList = ({ patients,selectedPatient,setSelectedPatient }) => {
   return (
     <div className=" w-[25%]  rounded-[10px] bg-white  flex flex-col justify-between">
       <span className="w-[100%] font-bold text-[20px] p-[1rem]">Patients</span>
       <div className="w-[100%] h-[90%]  overflow-y-scroll flex flex-col ">
         {patients !== null &&
           patients.map((patient) => (
-            <button id={patient.phone_number} className={`w-[100%] min-h-[80px] px-[1rem]  flex items-center ${selectedPatient === patient.name && "bg-[#D8FCF7]"}` }>
+            <button onClick={()=>setSelectedPatient(patient.name)} id={patient.phone_number} className={`w-[100%] min-h-[80px] px-[1rem]  flex items-center ${selectedPatient === patient.name && "bg-[#D8FCF7]"}` }>
               <div className="w-[80%] h-[100%]  flex items-center">
                 <div className="w-[100%] h-[65%]  flex items-center gap-[10px]">
                   <div className="w-[50px]  h-[100%] rounded-[100%]">

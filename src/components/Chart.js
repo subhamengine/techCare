@@ -10,7 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import "./Chart.css"; 
+import "./Chart.css";
 
 ChartJS.register(
   CategoryScale,
@@ -22,44 +22,108 @@ ChartJS.register(
   Legend
 );
 
-const BloodPressureChart = () => {
+// const diagnosisHistory = [
+//   {
+//     month: "March",
+//     year: 2024,
+//     blood_pressure: {
+//       systolic: { value: 163, levels: "Higher than Average" },
+//       diastolic: { value: 95, levels: "Normal" }
+//     }
+//   },
+//   {
+//     month: "February",
+//     year: 2024,
+//     blood_pressure: {
+//       systolic: { value: 151, levels: "Higher than Average" },
+//       diastolic: { value: 120, levels: "Normal" }
+//     }
+//   },
+//   {
+//     month: "January",
+//     year: 2024,
+//     blood_pressure: {
+//       systolic: { value: 168, levels: "Higher than Average" },
+//       diastolic: { value: 77, levels: "Lower than Average" }
+//     }
+//   },
+//   {
+//     month: "December",
+//     year: 2023,
+//     blood_pressure: {
+//       systolic: { value: 158, levels: "Higher than Average" },
+//       diastolic: { value: 92, levels: "Normal" }
+//     }
+//   },
+//   {
+//     month: "November",
+//     year: 2023,
+//     blood_pressure: {
+//       systolic: { value: 117, levels: "Normal" },
+//       diastolic: { value: 95, levels: "Normal" }
+//     }
+//   },
+//   {
+//     month: "October",
+//     year: 2023,
+//     blood_pressure: {
+//       systolic: { value: 115, levels: "Normal" },
+//       diastolic: { value: 80, levels: "Lower than Average" }
+//     }
+//   }
+// ];
+
+
+
+const BloodPressureChart = ({diagnosisHistory}) => {
+
+
+
+
+  const labels = diagnosisHistory?.map(
+    (entry) => `${entry.month} ${entry.year}`
+  );
+  
+  const systolicData = diagnosisHistory?.map(
+    (entry) => entry.blood_pressure.systolic.value
+  );
+  
+  const diastolicData = diagnosisHistory?.map(
+    (entry) => entry.blood_pressure.diastolic.value
+  );
+
+
+
   const data = {
-    labels: [
-      "Oct 2023",
-      "Nov 2023",
-      "Dec 2023",
-      "Jan 2024",
-      "Feb 2024",
-      "Mar 2024",
-    ],
+    labels, 
     datasets: [
       {
         label: "Systolic",
-        data: [120, 140, 160, 130, 150, 160], 
-        borderColor: "rgba(233, 92, 159, 1)", 
+        data: systolicData,
+        borderColor: "rgba(233, 92, 159, 1)",
         backgroundColor: "rgba(233, 92, 159, 0.1)",
-        pointBackgroundColor: "rgba(233, 92, 159, 1)", 
+        pointBackgroundColor: "rgba(233, 92, 159, 1)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
         pointHoverBorderColor: "rgba(233, 92, 159, 1)",
-        pointRadius: 8, 
-        pointHoverRadius: 10, 
+        pointRadius: 8,
+        pointHoverRadius: 10,
         fill: false,
         tension: 0.4,
       },
       {
         label: "Diastolic",
-        data: [100, 80, 90, 110, 70, 78], 
+        data: diastolicData, 
         borderColor: "rgba(155, 102, 255, 1)",
-        backgroundColor: "rgba(155, 102, 255, 0.1)", 
-        pointBackgroundColor: "rgba(155, 102, 255, 1)", 
+        backgroundColor: "rgba(155, 102, 255, 0.1)",
+        pointBackgroundColor: "rgba(155, 102, 255, 1)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
         pointHoverBorderColor: "rgba(155, 102, 255, 1)",
-        pointRadius: 8, 
+        pointRadius: 8,
         pointHoverRadius: 10,
         fill: false,
-        tension: 0.4, 
+        tension: 0.4,
       },
     ],
   };
@@ -68,9 +132,8 @@ const BloodPressureChart = () => {
     responsive: true,
     plugins: {
       legend: {
-        display: false, 
+        display: false,
       },
-      
     },
     scales: {
       y: {
@@ -96,12 +159,11 @@ const BloodPressureChart = () => {
               <div className="dot systolic-dot"></div>
               <p className="label">Systolic</p>
             </div>
-            <p className="value">160</p>
+            <p className="value">{systolicData[systolicData?.length - 1]}</p>
             <p className="status">Higher than Average</p>
           </div>
         </div>
         <hr />
-
         <div className="details-item diastolic">
           <div className="details-text">
             <div
@@ -110,7 +172,7 @@ const BloodPressureChart = () => {
               <div className="dot diastolic-dot"></div>
               <p className="label">Diastolic</p>
             </div>
-            <p className="value">78</p>
+            <p className="value">{diastolicData[diastolicData?.length - 1]}</p>
             <p className="status">Lower than Average</p>
           </div>
         </div>

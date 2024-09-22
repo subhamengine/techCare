@@ -7,6 +7,7 @@ import ProfileSection from './ProfileSection';
 const MainSection = () => {
     const [patients, setPatients] = useState(null);
     const [selectedPatient, setSelectedPatient] = useState(null);
+    const [selectedPatientStats, setSelectedPatientStats] = useState(null);
 
     useEffect(() => {
         const getPatients = async () => {
@@ -43,14 +44,25 @@ const MainSection = () => {
       
         getPatients();
       }, []);
+
+      useEffect(() => {
+        const patient = patients?.filter((pat)=>pat.name===selectedPatient)
+      
+       if(patient){
+        setSelectedPatientStats(patient[0])
+       }
+        
+        
+      }, [selectedPatient])
+      
       
 
 
   return (
     <div className='w-[100%] h-[85%]   px-[2rem] flex justify-between'>
-        <PatientsList patients={patients} selectedPatient={selectedPatient}/>
-        <StatsSection/>
-        <ProfileSection/>
+        <PatientsList patients={patients} selectedPatient={selectedPatient} setSelectedPatient={setSelectedPatient}/>
+        <StatsSection stats={selectedPatientStats}/>
+        <ProfileSection stats={selectedPatientStats}/>
     </div>
   )
 }

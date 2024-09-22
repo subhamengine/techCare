@@ -18,7 +18,7 @@ const DiagnosticTable = ({ diagnosticList }) => {
           </tr>
         </thead>
         <tbody >
-          {diagnosticList.map((diagnostic, index) => (
+          {diagnosticList?.map((diagnostic, index) => (
             <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
               <td className="px-6 py-4 whitespace-normal text-sm font-medium text-gray-900">{diagnostic.name}</td>
               <td className="px-6 py-4 whitespace-normal text-sm text-gray-500">{diagnostic.description}</td>
@@ -31,66 +31,9 @@ const DiagnosticTable = ({ diagnosticList }) => {
   );
 };
 
-// Example usage:
-const diagnosticList = [
-  {
-    name: "Allergies",
-    description: "The immune system's reaction to foreign substances that are typically not harmful.",
-    status: "Under observation"
-  },
-  {
-    name: "Allergies",
-    description: "The immune system's reaction to foreign substances that are typically not harmful.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  },
-  {
-    name: "Heart Murmur",
-    description: "Sounds during your heartbeat cycle made by turbulent blood in or near your heart.",
-    status: "Cured"
-  }
-];
 
-const App = () => {
+
+const App = ({diagnosticList}) => {
   return (
     <div className="p-4">
       <DiagnosticTable diagnosticList={diagnosticList} />

@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Patients from "./Pages/Patients";
 
 function App() {
-  // const navigate = useNavigate();
   return (
     <BrowserRouter>
       <Routes>

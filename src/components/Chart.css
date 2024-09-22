@@ -5,11 +5,12 @@
     padding: 20px;
     background-color: #f3f3fa; 
     border-radius: 12px;
-    height: 55%;
+    height: 70%;
   }
   
   .chart-section {
     flex: 1; 
+    width: 85%;
    
   }
   .chart-section {
