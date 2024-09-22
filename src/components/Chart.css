@@ -1,0 +1,68 @@
+.blood-pressure-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f3f3fa; 
+    border-radius: 12px;
+    height: 55%;
+  }
+  
+  .chart-section {
+    flex: 1; 
+   
+  }
+  .chart-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .details-section {
+    width: 250px;
+    padding-left: 20px;
+  }
+  
+  .details-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .systolic-dot {
+    background-color: rgba(233, 92, 159, 1); 
+  }
+  
+  .diastolic-dot {
+    background-color: rgba(155, 102, 255, 1);
+  }
+  
+  .details-text .label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  
+  .details-text .value {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .details-text .status {
+    font-size: 14px;
+    color: #999;
+  }
+
+hr{
+    height: 1px;
+    border: 1px solid #F6F7F8;
+}
+  
