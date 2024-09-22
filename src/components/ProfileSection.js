@@ -6,7 +6,6 @@ import birthicon from "../assets/BirthIcon.png";
 import LabResults from "./LabResults";
 
 const ProfileSection = ({stats}) => {
-  console.log(stats);
   
   return (
     <div className="w-[20%]  h-[100%] flex flex-col gap-[2rem]">
